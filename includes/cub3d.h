@@ -19,6 +19,7 @@ char    dfar(int num);
 int not_anum(char   *line);
 int checkColor(char **data,t_color *color);
 int getColors(t_needs *need);
+int getMap(t_needs *needs, int fd);
 
 
 

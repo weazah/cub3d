@@ -33,7 +33,14 @@ int initData(t_needs *needs , char	*file)
 		return (1);
 	if (getColors(needs))
 		return (1);
-	// if (getMap(needs,fd))
-	// 	return (1);
+	if (getMap(needs,fd))
+		return (1);
+	int i = 0;
+	while (needs->map[i])
+	{
+		printf("%s\n", needs->map[i]);
+		i++;
+	}
+	
     return (0);
 }
