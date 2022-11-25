@@ -5,7 +5,7 @@ OBJ_DIR= objects
 LIBFT= library/libft/libft.a
 GET_LINE= library/get_line/gnl.a
 ####
-NAME= Cub3d
+NAME= cub3D
 SRC := main.c init.c parse.c parse_helper.c colors.c 
 OBJ := $(SRC:.c=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
