@@ -18,6 +18,7 @@ int notSpace(char   *line)
 char    *skipNl(int fd)
 {
     char    *line;
+
     while (1)
     {
         line = get_next_line(fd);
@@ -27,6 +28,7 @@ char    *skipNl(int fd)
             break ;
         free(line);
     }
+
     return line;
 }
 

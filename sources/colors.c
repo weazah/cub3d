@@ -41,6 +41,14 @@ int checkColor(char **data,t_color *color)
     int i;
 
     i = 0;
+    int j = 0;
+    while(data[j])
+    {
+        ft_putstr_fd(data[j], 1);
+        ft_putstr_fd("\n", 1);
+        j++;
+    }
+    ft_putstr_fd("done\n", 1);
     if (!data)
         return (1);
     while (data[i])

@@ -4,12 +4,17 @@ int     f_parse(void **p, int *code, char *str)
 {
     char    **dstr;
     int     i;
+    char    *strb;
 
     if (!str)
         return (1);
-    dstr = ft_split(str, ' ');
+    strb  = ft_strtrim(str, " \n");
     free(str);
+    if (!strb)
+        return (1);
+    dstr = ft_split(strb, ' ');
     i = 0;
+    free(strb);
     if (!dstr)
         return (1);
     while(dstr[i])
@@ -17,13 +22,14 @@ int     f_parse(void **p, int *code, char *str)
     if (i > 2 || ft_strlen(dstr[0]) > 2 || parse_seq(dstr[0]))
         return (d_free(dstr), 1);
     *code = dstr[0][1] + dstr[0][0];
-    *p = ft_substr(dstr[1], 0, ft_strlen(dstr[1]) - 1);
+    *p = ft_strdup(dstr[1]);
     d_free(dstr);
     return (0);
 }
 
 int    setToPlace(void *p, int code, t_needs  *need)
 {
+
     if (code == clac_seq("NO"))
         return (need->images[0]->file_name = p, 0);
     if (code == clac_seq("SO"))

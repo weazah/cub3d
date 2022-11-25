@@ -11,11 +11,11 @@ int	initImages(t_needs *needs, int fd)
 	while (i < 6)
 	{
 		if (f_parse(&p, &code, skipNl(fd)))
-			return (1);
+			return (close(fd), 1);
 		if (!p)
-			return (1);
+			return (close(fd),1);
 		if (to_alocate(needs, code))
-			return (1);
+			return (close(fd),1);
 		setToPlace(p, code, needs);
 		i++;
 	}
@@ -33,5 +33,7 @@ int initData(t_needs *needs , char	*file)
 		return (1);
 	if (getColors(needs))
 		return (1);
+	// if (getMap(needs,fd))
+	// 	return (1);
     return (0);
 }

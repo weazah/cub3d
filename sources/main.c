@@ -2,8 +2,8 @@
 
 void    print_loc(t_needs *nee)
 {
-    printf("%s\n", nee->images[0]->file_name);
-    printf("%s\n", nee->images[1]->file_name);
+    printf("%s", nee->images[0]->file_name);
+    printf("%s", nee->images[1]->file_name);
     printf("%s\n", nee->images[2]->file_name);
     printf("%s\n", nee->images[3]->file_name);
     printf("%s\n", nee->colors[0]);
