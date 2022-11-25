@@ -1,6 +1,1 @@
 *.o
-../library/libft/*.o
-../library/libft/*.a
-../library/get_line/*.o
-../library/get_line/*.a
-../Cub3D
