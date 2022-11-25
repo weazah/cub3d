@@ -3,6 +3,10 @@
 
 typedef struct s_needs
 {
-    
+	void    *mlx_ptr;
+	void	*win_ptr;
+	void 	**images;
+	char	**map;
+
 } t_needs;
 #endif

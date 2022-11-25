@@ -5,5 +5,5 @@
 #include "mlx.h"
 #include "types.h"
 #include <stdio.h>
-
+int initData(t_needs *needs, char   *file);
 #endif

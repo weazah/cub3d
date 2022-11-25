@@ -6,7 +6,7 @@ LIBFT= library/libft/libft.a
 GET_LINE= library/get_line/gnl.a
 ####
 NAME= Cub3d
-SRC := main.c
+SRC := main.c init.c 
 OBJ := $(SRC:.c=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
 HEADERS := cub3d.h types.h
