@@ -25,7 +25,7 @@ int checkHorizontal(char  **map, int y, unsigned int x)
     {
         i++;
         if (!map[i])
-            break ;
+            return 1;
         if (i && ft_strlen(map[i]) < x)
             return 1;
     }
