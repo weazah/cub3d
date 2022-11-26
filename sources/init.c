@@ -35,12 +35,9 @@ int initData(t_needs *needs , char	*file)
 		return (1);
 	if (getMap(needs,fd))
 		return (1);
-	int i = 0;
-	while (needs->map[i])
-	{
-		printf("%s\n", needs->map[i]);
-		i++;
-	}
+	if (mapChecker(needs->map))
+		return 1;
+	printf("succes\n");
 	
     return (0);
 }

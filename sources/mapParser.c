@@ -17,12 +17,16 @@ char	*mapStore(char	*line, int mode)
 	return NULL;
 }
 
-int thatSpace(char   *line)
+int thatSpace(t_parser *parser, char   *line)
 {
     int i;
 	int len;
 
 	len = ft_strlen(line);
+	if (len > parser->mapx && line[len - 1] == '\n')
+		parser->mapx = len -1;
+	else if (len > parser->mapx)
+			parser->mapx = len;
     i = 0;
     while(line[i])
     {
@@ -30,8 +34,9 @@ int thatSpace(char   *line)
 			break ;
 		i++;
     }
+	
 	if (line[i] == '\n')
-		return 1;
+		return (1);
     return 0;
 }
 int noPass(char	*line,t_parser *parser)
@@ -39,7 +44,7 @@ int noPass(char	*line,t_parser *parser)
 	int i;
 
 	i = 0;
-	if (thatSpace(line))
+	if (thatSpace(parser, line))
 		return (free(line), 1);
 	while (line[i] && line[i] != '\n')
 	{
@@ -71,6 +76,7 @@ char	*readMap(t_needs *needs, int fd)
 	mapStore(line, 0);
 	while (1)
 	{
+		needs->parser.mapy++;
 		line = get_next_line(fd);
 		if (!line)
 			return (mapStore(NULL, 1));

@@ -21,6 +21,8 @@ typedef struct s_parser
 {
 	int 	posx;
 	int 	posy;
+	int		mapx;
+	int		mapy;
 	char	D;
 } t_parser;
 
@@ -30,6 +32,7 @@ typedef struct s_needs
 	void		*win_ptr;
 	char		*colors[2];
 	char		**map;
+
 	int			f;
 	int			c;
 	t_images	*images[4];

@@ -20,8 +20,10 @@ int not_anum(char   *line);
 int checkColor(char **data,t_color *color);
 int getColors(t_needs *need);
 int getMap(t_needs *needs, int fd);
-
-
+int mapChecker(char **map);
+int zeroCheck(char  **map, int y, int x);
+int checkVertical(char  **map, int y, int x);
+int checkHorizontal(char  **map, int y, unsigned int x);
 
 
 
