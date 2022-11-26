@@ -17,15 +17,23 @@ typedef struct s_images
 	int		width;
 } t_images;
 
+typedef struct s_parser
+{
+	int 	posx;
+	int 	posy;
+	char	D;
+} t_parser;
+
 typedef struct s_needs
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
 	char		*colors[2];
 	char		**map;
-	t_images	*images[4];
 	int			f;
 	int			c;
+	t_images	*images[4];
+	t_parser	parser;
 } t_needs;
 
 #endif
