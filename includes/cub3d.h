@@ -6,8 +6,14 @@
 #include "types.h"
 #include <stdio.h>
 
-#define W 36
-#define H 35
+#define resx 1920
+#define resy 1080
+#define W 10
+#define H 10
+#define floorM 0XFF2400
+#define wallM 0XDBDECD
+#define FRAMEW 15
+#define FRAMEH 15
 int     initData(t_needs *needs, char   *file);
 int     initImages(t_needs *needs, int fd);
 int     f_parse(void **p, int *code, char *str);
@@ -27,6 +33,7 @@ int zeroCheck(char  **map, int y, int x);
 int checkVertical(char  **map, int y, int x);
 int checkHorizontal(char  **map, int y, unsigned int x);
 int    renderMap(int keycode, t_needs   *need);
+int passable(char   c);
 
 
 

@@ -12,7 +12,7 @@ OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
 HEADERS := cub3d.h types.h
 HEADERS := $(addprefix $(HEADERS_DIR)/, $(HEADERS))
 SRC := $(addprefix $(SRC_DIR)/, $(SRC))
-CFLAGS= -g
+CFLAGS=  -g
 MFLAGS=  -lmlx -framework OpenGL -framework AppKit
 
 all: $(NAME)

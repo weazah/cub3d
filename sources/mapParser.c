@@ -90,8 +90,27 @@ char	*readMap(t_needs *needs, int fd)
 
 int getMap(t_needs *needs, int fd)
 {
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
     needs->map = ft_split(readMap(needs, fd), '\n');
     if (!needs->map || !needs->parser.D)
         return (1);
+	while (needs->map[i])
+	{
+		j = 0;
+		while (needs->map[i][j])
+		{
+			if (needs->map[i][j] == needs->parser.D)
+				{
+					needs->parser.posx = j * W;
+					needs->parser.posy = i * H;
+				}
+			j++;
+		}
+		i++;
+	}
     return 0;
 }

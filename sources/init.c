@@ -39,7 +39,6 @@ int initData(t_needs *needs , char	*file)
 		return (1);
 	if (mapChecker(needs->map))
 		return 1;
-	printf("succes\n");
-	
+	printf("%d, %d\n", needs->parser.posx,needs->parser.posy );
     return (0);
 }

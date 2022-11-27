@@ -25,9 +25,10 @@ int main(int ac, char   **av)
         return (1);
     printf("%d %d\n", needs.parser.mapy, needs.parser.mapx);
     needs.win_ptr = mlx_new_window(needs.mlx_ptr,
-        needs.parser.mapx * W , needs.parser.mapy * H, "cub3D"); 
+        resx , resy , "cub3D"); 
     if (!needs.win_ptr)
         return (1);
-    mlx_key_hook(needs.win_ptr ,renderMap, &needs);
+    renderMap(-99, &needs);
+    mlx_hook(needs.win_ptr,2,0 ,renderMap, &needs);
     mlx_loop(needs.mlx_ptr);
 }
