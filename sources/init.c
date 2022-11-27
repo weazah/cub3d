@@ -29,7 +29,9 @@ int initData(t_needs *needs , char	*file)
 	if (ft_strlen(file) < 3 || ft_strncmp(file + ft_strlen(file) - 4, ".cub", 4))
 		return (ft_putstr_fd("Wrong extention\n", 2), 1);
 	fd = open(file, O_RDONLY);
-	if (fd < 0 || initImages(needs, fd))
+	if (fd < 0)
+		return (ft_putstr_fd("file doesnt exist\n", 2), 1);
+	if (initImages(needs, fd))
 		return (1);
 	if (getColors(needs))
 		return (1);

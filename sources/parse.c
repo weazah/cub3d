@@ -1,5 +1,10 @@
 #include "../includes/cub3d.h"
-
+int location(char   *line, int len)
+{
+    while (line[len] == ' ')
+        len++;
+    return (len);
+}
 int     f_parse(void **p, int *code, char *str)
 {
     char    **dstr;
@@ -19,10 +24,10 @@ int     f_parse(void **p, int *code, char *str)
         return (1);
     while(dstr[i])
         i++;
-    if (i > 2 || ft_strlen(dstr[0]) > 2 || parse_seq(dstr[0]))
+    if (i < 2 || ft_strlen(dstr[0]) > 2 || parse_seq(dstr[0]))
         return (d_free(dstr), 1);
     *code = dstr[0][1] + dstr[0][0];
-    *p = ft_strdup(dstr[1]);
+    *p = ft_strdup(strb + location(strb , ft_strlen(dstr[0])));
     d_free(dstr);
     return (0);
 }

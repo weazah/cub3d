@@ -32,7 +32,6 @@ typedef struct s_needs
 	void		*win_ptr;
 	char		*colors[2];
 	char		**map;
-
 	int			f;
 	int			c;
 	t_images	*images[4];

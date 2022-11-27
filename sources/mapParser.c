@@ -91,7 +91,7 @@ char	*readMap(t_needs *needs, int fd)
 int getMap(t_needs *needs, int fd)
 {
     needs->map = ft_split(readMap(needs, fd), '\n');
-    if (!needs->map)
+    if (!needs->map || !needs->parser.D)
         return (1);
     return 0;
 }

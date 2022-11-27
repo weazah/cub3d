@@ -41,14 +41,6 @@ int checkColor(char **data,t_color *color)
     int i;
 
     i = 0;
-    int j = 0;
-    while(data[j])
-    {
-        ft_putstr_fd(data[j], 1);
-        ft_putstr_fd("\n", 1);
-        j++;
-    }
-    ft_putstr_fd("done\n", 1);
     if (!data)
         return (1);
     while (data[i])
@@ -64,6 +56,25 @@ int checkColor(char **data,t_color *color)
     
     return 0;
 }
+int commasCheck(char    *line)
+{
+    int i;
+    int com;
+
+    i = 0;
+    com = 0;
+    while (line[i])
+    {
+        if (line[i] == ',')
+            com++;
+        if (line[i] == ',' && line[i + 1] == ',')
+            return (1);
+        i++;
+    }
+    if (com > 2)
+        return (1);
+    return 0;
+}
 int getColors(t_needs *need)
 {
 	t_color	color;
@@ -74,6 +85,8 @@ int getColors(t_needs *need)
     ft_bzero(&color, sizeof(t_color));
     while (i < 2)
     {
+        if (commasCheck(need->colors[i]))
+            return (1);
         if (checkColor(ft_split(need->colors[i], ','), &color))
             return (1);
         if (i == 0)
