@@ -6,6 +6,8 @@
 #include "types.h"
 #include <stdio.h>
 
+#define W 36
+#define H 35
 int     initData(t_needs *needs, char   *file);
 int     initImages(t_needs *needs, int fd);
 int     f_parse(void **p, int *code, char *str);
@@ -24,6 +26,8 @@ int mapChecker(char **map);
 int zeroCheck(char  **map, int y, int x);
 int checkVertical(char  **map, int y, int x);
 int checkHorizontal(char  **map, int y, unsigned int x);
+int    renderMap(int keycode, t_needs   *need);
+
 
 
 

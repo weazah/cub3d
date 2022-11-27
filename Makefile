@@ -6,13 +6,13 @@ LIBFT= library/libft/libft.a
 GET_LINE= library/get_line/gnl.a
 ####
 NAME= cub3D
-SRC := main.c init.c parse.c parse_helper.c colors.c  mapParser.c mapChecker.c
+SRC := main.c init.c parse.c parse_helper.c colors.c  mapParser.c mapChecker.c renderMap.c
 OBJ := $(SRC:.c=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
 HEADERS := cub3d.h types.h
 HEADERS := $(addprefix $(HEADERS_DIR)/, $(HEADERS))
 SRC := $(addprefix $(SRC_DIR)/, $(SRC))
-CFLAGS= -Wall -Wextra -Werror -g
+CFLAGS= -g
 MFLAGS=  -lmlx -framework OpenGL -framework AppKit
 
 all: $(NAME)

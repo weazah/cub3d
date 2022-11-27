@@ -20,5 +20,14 @@ int main(int ac, char   **av)
     ft_bzero(&needs, sizeof(t_needs));
     if (initData(&needs, av[1]))
         return 0;
-    print_loc(&needs);
+    needs.mlx_ptr = mlx_init();
+    if (!needs.mlx_ptr)
+        return (1);
+    printf("%d %d\n", needs.parser.mapy, needs.parser.mapx);
+    needs.win_ptr = mlx_new_window(needs.mlx_ptr,
+        needs.parser.mapx * W , needs.parser.mapy * H, "cub3D"); 
+    if (!needs.win_ptr)
+        return (1);
+    mlx_key_hook(needs.win_ptr ,renderMap, &needs);
+    mlx_loop(needs.mlx_ptr);
 }
