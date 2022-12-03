@@ -6,7 +6,7 @@ LIBFT= library/libft/libft.a
 GET_LINE= library/get_line/gnl.a
 ####
 NAME= cub3D
-SRC := main.c
+SRC := main.c makeShifthelpers.c destruct.c parse.c parseHelpers.c init.c
 OBJ := $(SRC:.c=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
 HEADERS := cub3d.h types.h
@@ -23,10 +23,10 @@ $(LIBFT):
 	@make -C library/libft/
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS) 
-	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)  $(LIBFT) $(GET_LINE)
-	@echo $(HEADERS) $(SRC) $(OBJ)
+	
 	$(CC) $(CFLAGS) $(MFLAGS) $(GET_LINE) $(LIBFT)  $(OBJ) -o $(NAME)
 
 

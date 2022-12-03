@@ -1,6 +1,31 @@
 #ifndef CUBTHREED_TYPES
 #define CUBTHREED_TYPES
 
+typedef struct	s_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_data;
+
+typedef enum s_dir
+{
+	N,
+	E,
+	W,
+	S
+}	t_dir;
+
+typedef	struct s_player
+{
+	int	px_y;
+	int px_x;
+	int	y;
+	int	x;
+	int dire;
+}	t_player;
+
 typedef struct s_color
 {
 	unsigned char	b;
@@ -8,36 +33,36 @@ typedef struct s_color
 	unsigned char	r;
 	unsigned char	pad;
 } t_color;
- 
-typedef struct s_images
+
+typedef struct  s_map
 {
-	char	*file_name;
-	void	*xpmptr;
+	char	**map;
+	int		y;
+	int		x;
+}	t_map;
+
+typedef struct s_texture
+{
+	char	*file;
+	void	*raw;
 	int		height;
-	int		width;
-} t_images;
+	int 	width;
+} t_texture;
 
-typedef struct s_parser
+typedef struct s_deps
 {
-	int 	posx;
-	int 	posy;
-	int		mapx;
-	int		mapy;
-	char	D;
-} t_parser;
+	void	*mlx_ptr;
+	void	*win_ptr;
+	t_data	sheet;
+} t_deps;
 
-typedef struct s_needs
+typedef struct s_all
 {
-	void		*mlx_ptr;
-	void		*win_ptr;
-	char		*colors[2];
-	char		**map;
-	int 		posx;
-	int			posy;
-	int			f;
-	int			c;
-	t_images	*images[4];
-	t_parser	parser;
-} t_needs;
+	t_deps		deps;
+	t_texture	texs[4];
+	t_map 		map;
+	t_color		colors[2];
+	t_player	player;
+} t_all;
 
 #endif
