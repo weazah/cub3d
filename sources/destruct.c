@@ -33,8 +33,10 @@ void    destructSheet(t_data    *data, void *mlx_ptr)
         mlx_destroy_image(mlx_ptr, data->img);
 }
 
-void    destruct(t_all *all)
+void    destruct(t_all *all, char   *message)
 {
+    if (message)
+        ft_putstr_fd(message, 2);
     destructTextures(&all->texs[0], all->deps.mlx_ptr);
     destructMap(&all->map);
     destructSheet(&all->deps.sheet, all->deps.mlx_ptr);

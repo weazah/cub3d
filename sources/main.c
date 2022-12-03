@@ -10,6 +10,5 @@ int main(int ac, char   **av)
     startParse(&data, av[1]);
     init(&data);
     initPixels(&data);
-    
     mlx_loop(data.deps.mlx_ptr);
 }
