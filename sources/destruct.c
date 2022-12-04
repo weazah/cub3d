@@ -1,5 +1,19 @@
 #include "../includes/cub3d.h"
 
+void    d_free(char **d)
+{
+    int i;
+
+    i = 0;
+    if (!d)
+        return ;
+    while (d[i])
+    {
+        free(d[i]);
+        i++;
+    }
+    free(d);
+}
 void    destructTextures(t_texture *tex, void   *mlx_ptr)
 {
     int i;
@@ -16,16 +30,8 @@ void    destructTextures(t_texture *tex, void   *mlx_ptr)
 }
 void    destructMap(t_map *map)
 {
-    int i;
-
-    i = 0;
-    while (map->map && map->map[i])
-    {
-        free(map->map[i]);
-        i++;
-    }
     if (map->map)
-        free(map->map);
+        d_free(map->map);
 }
 void    destructSheet(t_data    *data, void *mlx_ptr)
 {

@@ -11,6 +11,7 @@
 #define bloc 10; 
 
 /* destruct source file region*/
+void    d_free(char **d);
 void    destructTextures(t_texture *tex, void   *mlx_ptr);
 void    destructMap(t_map *map);
 void    destructSheet(t_data    *data, void *mlx_ptr);
@@ -27,6 +28,13 @@ void	pixel_to_image_put(t_data *data, int x, int y, int color);
 /*parse region*/
 void    startParse(t_all *all, char    *cub);
 void    checkFileName(char  *file);
+void    fitTex(t_all *all, char **tex);
+int getCode(char    *line);
+int notSpace(char   *line);
+void    getTextures(t_all *all, int fd);
+void    getMap(t_all *all, int fd);
+void    setColors(t_all *all);
+char    *skipNl(int fd);
 
 
 #endif

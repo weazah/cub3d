@@ -34,6 +34,14 @@ typedef struct s_color
 	unsigned char	pad;
 } t_color;
 
+typedef struct s_colors
+{
+	unsigned	int ceiling;
+	unsigned int floor;
+	char	*sceiling;
+	char	*sfloor;
+} t_colors;
+
 typedef struct  s_map
 {
 	char	**map;
@@ -61,7 +69,7 @@ typedef struct s_all
 	t_deps		deps;
 	t_texture	texs[4];
 	t_map 		map;
-	t_color		colors[2];
+	t_colors	colors;
 	t_player	player;
 } t_all;
 
