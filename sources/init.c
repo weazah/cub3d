@@ -26,9 +26,9 @@ void    initPixels(t_all *all)
     ft_bzero(&places, sizeof(places));
     places[3] = resy / 2;
     places[2] = resx;
-    drawSquaredRegion(&all->deps.sheet, places, places + 2, 0xFCBA03);
+    drawSquaredRegion(&all->deps.sheet, places, places + 2, all->colors.floor);
     places[1] = resy / 2;
     places[3] = resy;
-    drawSquaredRegion(&all->deps.sheet, places, places + 2, 0xB8B3A5);
+    drawSquaredRegion(&all->deps.sheet, places, places + 2, all->colors.ceiling);
     mlx_put_image_to_window(all->deps.mlx_ptr, all->deps.win_ptr, all->deps.sheet.img, 0,0);
 }

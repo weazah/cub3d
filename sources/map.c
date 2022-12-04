@@ -55,6 +55,7 @@ int mapRules(t_all *all,char   *line)
     }
     if (!all->player.dire)
         all->player.y++;
+    all->map.y++;
     return (0);
 }
 void    getMap(t_all *all, int fd)

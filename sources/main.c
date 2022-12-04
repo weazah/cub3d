@@ -8,7 +8,8 @@ int main(int ac, char   **av)
         return (ft_putstr_fd("the program needs two arguments",2), 1);
     ft_bzero(&data, sizeof(t_all));
     startParse(&data, av[1]);
-//     init(&data);
-//     initPixels(&data);
-//     mlx_loop(data.deps.mlx_ptr);
+    init(&data);
+    printf("%d %d \n", data.map.x, data.map.y);
+    // initPixels(&data);
+    // mlx_loop(data.deps.mlx_ptr);
 }
