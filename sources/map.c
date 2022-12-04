@@ -51,10 +51,10 @@ int mapRules(t_all *all,char   *line)
     {
         if (notAllowed(all, line[i], i))
             return (1);
-        if (!all->player.dire)
-            all->player.y++;
         i++;
     }
+    if (!all->player.dire)
+        all->player.y++;
     return (0);
 }
 void    getMap(t_all *all, int fd)

@@ -35,6 +35,7 @@ void    getTextures(t_all *all, int fd);
 void    getMap(t_all *all, int fd);
 void    setColors(t_all *all);
 char    *skipNl(int fd);
+int mapChecker(char **map);
 
 
 #endif
