@@ -5,10 +5,12 @@
 #include "mlx.h"
 #include "types.h"
 #include <stdio.h>
+#include  <math.h>
 
 #define resx 1920
 #define resy 1080
-#define bloc 10; 
+#define bloc 20
+#define ABS(N) ((N<0)?(-N):(N))
 
 /* destruct source file region*/
 void    d_free(char **d);
@@ -21,7 +23,7 @@ void    init(t_all *all);
 void    initPixels(t_all *all);
 
 /* makeshift region*/
-void    drawSquaredRegion(t_data *data, int *start, int *end, int color);
+void    drawSquaredRegion(t_data *data, int y, int x, int color);
 void    *get_pixel_location(t_data    *data, int x, int y);
 void	pixel_to_image_put(t_data *data, int x, int y, int color);
 
@@ -36,6 +38,11 @@ void    getMap(t_all *all, int fd);
 void    setColors(t_all *all);
 char    *skipNl(int fd);
 int mapChecker(char **map);
+
+/*renders*/
+    void    render(t_all *data);
+    void    copyImage(t_data   *dest, t_data *src,int x, int y);
+
 
 
 #endif

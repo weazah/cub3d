@@ -11,7 +11,9 @@ void    checkInput(t_all   *data)
     data->player.px_y = data->player.y * bloc;
     if (mapChecker(data->map.map))
         destruct(data, "Error\nthe map doesnt follow the rules\n");
-    
+    printf("%d %d %c\n", data->player.x, data->player.y,data->map.map[data->player.y][data->player.x]);
+    data->map.map[data->player.y][data->player.x] = '0';
+    printf("%d %d %c\n", data->player.x, data->player.y,data->map.map[data->player.y][data->player.x]);
 }
 void    startParse(t_all *all, char    *cub)
 {

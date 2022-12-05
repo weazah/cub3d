@@ -32,3 +32,4 @@ void    initPixels(t_all *all)
     drawSquaredRegion(&all->deps.sheet, places, places + 2, all->colors.ceiling);
     mlx_put_image_to_window(all->deps.mlx_ptr, all->deps.win_ptr, all->deps.sheet.img, 0,0);
 }
+

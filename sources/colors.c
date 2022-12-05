@@ -67,5 +67,4 @@ void    setColors(t_all *all)
 {
     all->colors.ceiling = getColor(all,0);
     all->colors.floor = getColor(all,1);
-    printf("ceiling %x\n floor %x\n",all->colors.ceiling, all->colors.floor);
 }

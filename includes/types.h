@@ -55,6 +55,7 @@ typedef struct s_texture
 	void	*raw;
 	int		height;
 	int 	width;
+	double	angle;
 } t_texture;
 
 typedef struct s_deps
@@ -62,6 +63,8 @@ typedef struct s_deps
 	void	*mlx_ptr;
 	void	*win_ptr;
 	t_data	sheet;
+	t_data	calcs;
+	t_data	calcs2;
 } t_deps;
 
 typedef struct s_all
