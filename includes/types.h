@@ -24,6 +24,8 @@ typedef	struct s_player
 	int	y;
 	int	x;
 	int dire;
+	int degree;
+	double rad;
 }	t_player;
 
 typedef struct s_color
@@ -61,7 +63,7 @@ typedef struct s_texture
 typedef struct s_deps
 {
 	void	*mlx_ptr;
-	void	*win_ptr;
+	void	*win_ptr[2];
 	t_data	sheet;
 	t_data	calcs;
 	t_data	calcs2;

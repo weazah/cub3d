@@ -74,5 +74,5 @@ void    render(t_all *all)
     drawplayer(all, all->player.px_x, all->player.px_y);
     copyImage(&all->deps.calcs2, &all->deps.calcs, all->map.x * bloc, all->map.y * bloc );
     Drawline(all, all->map.x * bloc,all->map.y * bloc);
-    mlx_put_image_to_window(all->deps.mlx_ptr, all->deps.win_ptr, all->deps.calcs2.img, 0,0);
+    mlx_put_image_to_window(all->deps.mlx_ptr, all->deps.win_ptr[1], all->deps.calcs2.img, 0,0);
 }

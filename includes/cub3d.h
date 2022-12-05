@@ -31,17 +31,20 @@ void	pixel_to_image_put(t_data *data, int x, int y, int color);
 void    startParse(t_all *all, char    *cub);
 void    checkFileName(char  *file);
 void    fitTex(t_all *all, char **tex);
-int getCode(char    *line);
-int notSpace(char   *line);
+int     getCode(char    *line);
+int     notSpace(char   *line);
 void    getTextures(t_all *all, int fd);
 void    getMap(t_all *all, int fd);
 void    setColors(t_all *all);
 char    *skipNl(int fd);
-int mapChecker(char **map);
+int     mapChecker(char **map);
 
 /*renders*/
     void    render(t_all *data);
     void    copyImage(t_data   *dest, t_data *src,int x, int y);
+    void    set_pixel(int   *i, int j);
+    double setRad(int deg);
+
 
 
 
