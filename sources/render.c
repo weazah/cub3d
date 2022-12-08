@@ -1,6 +1,6 @@
 #include "../includes/cub3d.h"
 
-void Drawline(t_all *all, int x, int y)
+void Drawline(t_all *all, double x, double y)
 {
     int d[2]; 
     int steps;
@@ -49,17 +49,17 @@ void    drawmap(t_all *all)
     }
 }
 
-void    drawplayer(t_all *all, int x, int y)
+void    drawplayer(t_all *all, double x, double y)
 {
-    int tx;
-    int ty;
+    double tx;
+    double ty;
     
-    tx = x + 2;
-    ty = y + 2;
-    y = y -2;
+    tx = x + 1;
+    ty = y + 1;
+    y = y -1;
     while (y < ty)
     {
-        x = tx - 4;
+        x = tx - 2;
         while (x < tx)
         {
             pixel_to_image_put(&all->deps.calcs, x, y,  0xFAFF5);
@@ -80,10 +80,10 @@ void    render(t_all *all)
 int hook(int keycode, t_all *data)
 {
     if (keycode == Cleft)
-        setDegree(&data->player.degree, -5);
+        data->player.rad += 0.0804533 * (-1);
     if (keycode == Cright)
-        setDegree(&data->player.degree, 5);
-    data->player.rad = setRad(data->player.degree);
+         data->player.rad += 0.0804533;
+   // data->player.rad = setRad(data->player.degree);
     if (keycode == Mup)
         horizontal(data, -1);
      if (keycode == Mdown)

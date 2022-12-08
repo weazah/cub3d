@@ -19,12 +19,11 @@ typedef enum s_dir
 
 typedef	struct s_player
 {
-	int	px_y;
-	int px_x;
+	double	px_y;
+	double px_x;
 	int	y;
 	int	x;
 	int dire;
-	int degree;
 	double rad;
 }	t_player;
 
