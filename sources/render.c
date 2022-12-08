@@ -60,7 +60,6 @@ void    render(t_all *all)
     copyImage(&all->deps.calcs2, &all->deps.calcs, all->map.x * bloc, all->map.y * bloc);
     Drawdire(all, all->player.px_x + cos(all->player.rad) * -20,  all->player.px_y + sin(all->player.rad)* -20);
     mlx_put_image_to_window(all->deps.mlx_ptr, all->deps.win_ptr[1], all->deps.calcs2.img, 0,0);
-
 }
 
 int hook(int keycode, t_all *data)
