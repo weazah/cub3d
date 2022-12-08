@@ -12,6 +12,14 @@
 #define bloc 20
 #define ABS(N) ((N<0)?(-N):(N))
 
+#define Mup 13
+#define Mdown 1
+#define Mleft 0
+#define Mright 2
+#define Cright 124
+#define Cleft 123
+
+
 /* destruct source file region*/
 void    d_free(char **d);
 void    destructTextures(t_texture *tex, void   *mlx_ptr);
@@ -44,8 +52,9 @@ int     mapChecker(char **map);
     void    copyImage(t_data   *dest, t_data *src,int x, int y);
     void    set_pixel(int   *i, int j);
     double setRad(int deg);
-
-
-
+    int setDegree(int *deg, int piv);
+    int hook(int keycode, t_all *data);
+    void    horizontal(t_all *data, int where);
+    void    vertical(t_all *data, int where);
 
 #endif

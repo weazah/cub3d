@@ -34,5 +34,7 @@ int main(int ac, char   **av)
     initPixels(&data);
     get_calcimg(&data);
     render(&data);
+    data.player.degree = 90;
+    mlx_hook(data.deps.win_ptr[1],2,0 ,&hook, &data);
     mlx_loop(data.deps.mlx_ptr);
 }

@@ -73,6 +73,26 @@ void    render(t_all *all)
     drawmap(all);
     drawplayer(all, all->player.px_x, all->player.px_y);
     copyImage(&all->deps.calcs2, &all->deps.calcs, all->map.x * bloc, all->map.y * bloc );
-    Drawline(all, all->map.x * bloc,all->map.y * bloc);
+    //Drawline(all, all->map.x * bloc,all->map.y * bloc);
     mlx_put_image_to_window(all->deps.mlx_ptr, all->deps.win_ptr[1], all->deps.calcs2.img, 0,0);
+}
+
+int hook(int keycode, t_all *data)
+{
+    if (keycode == Cleft)
+        setDegree(&data->player.degree, -5);
+    if (keycode == Cright)
+        setDegree(&data->player.degree, 5);
+    data->player.rad = setRad(data->player.degree);
+    if (keycode == Mup)
+        horizontal(data, -1);
+     if (keycode == Mdown)
+        horizontal(data, 1);
+    if (keycode == Mleft)
+        vertical(data, -1);
+    if (keycode == Mright)
+        vertical(data, +1);
+    printf("%f %d\n", data->player.rad, keycode);
+    render(data);
+    return 0;
 }
