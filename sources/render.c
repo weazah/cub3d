@@ -1,6 +1,6 @@
 #include "../includes/cub3d.h"
 
-void Drawline(t_all *all, double x, double y)
+void Drawdire(t_all *all, double x, double y)
 {
     int d[2]; 
     int steps;
@@ -51,30 +51,16 @@ void    drawmap(t_all *all)
 
 void    drawplayer(t_all *all, double x, double y)
 {
-    double tx;
-    double ty;
-    
-    tx = x + 1;
-    ty = y + 1;
-    y = y -1;
-    while (y < ty)
-    {
-        x = tx - 2;
-        while (x < tx)
-        {
-            pixel_to_image_put(&all->deps.calcs, x, y,  0xFAFF5);
-            x++;
-        }
-        y++;
-    }
+    pixel_to_image_put(&all->deps.calcs, x, y,  0xFAFF5);
 }
 void    render(t_all *all)
 {
     drawmap(all);
     drawplayer(all, all->player.px_x, all->player.px_y);
-    copyImage(&all->deps.calcs2, &all->deps.calcs, all->map.x * bloc, all->map.y * bloc );
-    //Drawline(all, all->map.x * bloc,all->map.y * bloc);
+    copyImage(&all->deps.calcs2, &all->deps.calcs, all->map.x * bloc, all->map.y * bloc);
+    Drawdire(all, all->player.px_x + cos(all->player.rad) * -20,  all->player.px_y + sin(all->player.rad)* -20);
     mlx_put_image_to_window(all->deps.mlx_ptr, all->deps.win_ptr[1], all->deps.calcs2.img, 0,0);
+
 }
 
 int hook(int keycode, t_all *data)
@@ -83,16 +69,15 @@ int hook(int keycode, t_all *data)
         data->player.rad += 0.0804533 * (-1);
     if (keycode == Cright)
          data->player.rad += 0.0804533;
-   // data->player.rad = setRad(data->player.degree);
     if (keycode == Mup)
         horizontal(data, -1);
      if (keycode == Mdown)
         horizontal(data, 1);
     if (keycode == Mleft)
-        vertical(data, -1);
+        vertical(data, 1);
     if (keycode == Mright)
-        vertical(data, +1);
-    printf("%f %d\n", data->player.rad, keycode);
+        vertical(data, -1);
+    mlx_clear_window(data->deps.mlx_ptr, data->deps.win_ptr[1]);
     render(data);
     return 0;
 }
